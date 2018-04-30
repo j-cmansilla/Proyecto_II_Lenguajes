@@ -38,8 +38,14 @@ namespace Proyecto_II
                     this.Hide();
                     break;
                 case 1: //Copiar texto
+                    CopiarPatrones copiarPatrones = new CopiarPatrones();
+                    copiarPatrones.Show();
+                    this.Hide();
                     break;
                 case 2: //Multiplicar unario
+                    Unaria multUnaria = new Unaria();
+                    multUnaria.Show();
+                    this.Hide();
                     break;
                 case 3: //Suma unaria
                     break;
