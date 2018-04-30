@@ -21,6 +21,8 @@ namespace Proyecto_II
         {
             InitializeComponent();
             cinta.MultiSelect = false;
+            this.cinta.DefaultCellStyle.Font = new Font("Ubuntu Mono", 18);
+            cinta.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -63,6 +65,7 @@ namespace Proyecto_II
         private void btnProcesarCadena_MouseClick(object sender, MouseEventArgs e)
         {
             picStart.Visible = false;
+            textBox1.Enabled = false;
             picNext.Visible = true;
             string texto = textBox1.Text + "ß";
             char[] cadena = texto.ToCharArray();
@@ -85,14 +88,13 @@ namespace Proyecto_II
             currentToken = listaCadena[0];
             //lblTokenActual.Text = currentToken.ToString();
             index = -1;
-            Palindromo.cadena = cadena;
-            Palindromo.currentIndex = 0;
-            Palindromo.currentState = 0;
+            cinta.Rows[0].Cells[0].Selected = true;
         }
-
+        private int pasos = 0;
         private void picNext_Click(object sender, EventArgs e)
         {
             currentToken = listaCadena[index + 1];
+            lblPasos.Text = (++pasos).ToString();
             //lblTokenActual.Text = currentToken.ToString();
             getNextState();
             if (currentState == 10)
@@ -100,12 +102,14 @@ namespace Proyecto_II
                 picNext.Visible = false;
                 lblResultado.Visible = true;
                 acaptada.Visible = true;
+                picRestart.Visible = true;
             }
             if (currentState == -1)
             {
                 picNext.Visible = false;
                 lblResultado.Visible = true;
                 NoAceptada.Visible = true;
+                picRestart.Visible = true;
                 return;
             }
             else
@@ -202,6 +206,7 @@ namespace Proyecto_II
                         index--;
                         return;
                     case ' ':
+                        //currentState = 7;
                         index--;
                         return;
                     default:
@@ -220,6 +225,7 @@ namespace Proyecto_II
                         index--;
                         return;
                     case ' ':
+                        //currentState = 7;
                         index--;
                         return;
                     default:
@@ -238,6 +244,7 @@ namespace Proyecto_II
                         index--;
                         return;
                     case ' ':
+                        //currentState = 7;
                         index--;
                         return;
                     default:
@@ -285,6 +292,45 @@ namespace Proyecto_II
                 }
             }
             return;
+        }
+
+        private void picRestart_Click(object sender, EventArgs e)
+        {
+            lblState.Text = "q0";
+            textBox1.Text = "";
+            lblResultado.Visible = false;
+            NoAceptada.Visible = false;
+            acaptada.Visible = false;
+            lblPasos.Text = "0";
+            pasos = 0;
+            for (int i = 0; i < cinta.Columns.Count; i++)
+            {
+                cinta.Columns.RemoveAt(i);
+            }
+            cinta.Rows.RemoveAt(0);
+            //cinta = new DataGridView();
+            textBox1.Enabled = true;
+            picRestart.Visible = false;
+        }
+
+        private void acaptada_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NoAceptada_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblResultado_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

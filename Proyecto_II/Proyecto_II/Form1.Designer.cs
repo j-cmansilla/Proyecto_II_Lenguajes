@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.cinta = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,39 +45,51 @@
             this.NoAceptada = new System.Windows.Forms.PictureBox();
             this.picNext = new System.Windows.Forms.PictureBox();
             this.lblTokenActual = new System.Windows.Forms.Label();
+            this.picRestart = new System.Windows.Forms.PictureBox();
+            this.lblPasos = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.cinta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picStart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.acaptada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NoAceptada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picNext)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picRestart)).BeginInit();
             this.SuspendLayout();
             // 
             // cinta
             // 
             this.cinta.AllowUserToAddRows = false;
             this.cinta.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Ubuntu Mono", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cinta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.cinta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.cinta.ColumnHeadersVisible = false;
-            this.cinta.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cinta.Location = new System.Drawing.Point(16, 163);
-            this.cinta.Name = "cinta";
-            this.cinta.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Ubuntu Mono", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Ubuntu Mono", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cinta.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.cinta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.cinta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.cinta.ColumnHeadersVisible = false;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Ubuntu Mono", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.cinta.DefaultCellStyle = dataGridViewCellStyle5;
+            this.cinta.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cinta.Location = new System.Drawing.Point(16, 58);
+            this.cinta.Name = "cinta";
+            this.cinta.ReadOnly = true;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Ubuntu Mono", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cinta.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.cinta.Size = new System.Drawing.Size(615, 124);
             this.cinta.TabIndex = 0;
             // 
@@ -86,7 +99,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Ubuntu Mono", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(12, 314);
+            this.label2.Location = new System.Drawing.Point(239, 185);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(180, 20);
             this.label2.TabIndex = 4;
@@ -94,9 +107,10 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(198, 314);
+            this.textBox1.Font = new System.Drawing.Font("Ubuntu Mono", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(17, 208);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(434, 20);
+            this.textBox1.Size = new System.Drawing.Size(614, 31);
             this.textBox1.TabIndex = 5;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -106,7 +120,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Ubuntu Mono", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(13, 23);
+            this.label3.Location = new System.Drawing.Point(13, 3);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(144, 20);
             this.label3.TabIndex = 6;
@@ -143,7 +157,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Ubuntu Mono", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(163, 23);
+            this.label5.Location = new System.Drawing.Point(13, 35);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(189, 20);
             this.label5.TabIndex = 9;
@@ -154,7 +168,7 @@
             // 
             this.picStart.BackColor = System.Drawing.Color.Transparent;
             this.picStart.Image = ((System.Drawing.Image)(resources.GetObject("picStart.Image")));
-            this.picStart.Location = new System.Drawing.Point(17, 345);
+            this.picStart.Location = new System.Drawing.Point(17, 270);
             this.picStart.Name = "picStart";
             this.picStart.Size = new System.Drawing.Size(65, 71);
             this.picStart.TabIndex = 10;
@@ -169,40 +183,43 @@
             this.lblResultado.BackColor = System.Drawing.Color.Transparent;
             this.lblResultado.Font = new System.Drawing.Font("Ubuntu Mono", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResultado.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblResultado.Location = new System.Drawing.Point(13, 70);
+            this.lblResultado.Location = new System.Drawing.Point(463, 267);
             this.lblResultado.Name = "lblResultado";
             this.lblResultado.Size = new System.Drawing.Size(90, 20);
             this.lblResultado.TabIndex = 11;
             this.lblResultado.Text = "Aceptada:";
             this.lblResultado.Visible = false;
+            this.lblResultado.Click += new System.EventHandler(this.lblResultado_Click);
             // 
             // acaptada
             // 
             this.acaptada.BackColor = System.Drawing.Color.Transparent;
             this.acaptada.Image = ((System.Drawing.Image)(resources.GetObject("acaptada.Image")));
-            this.acaptada.Location = new System.Drawing.Point(109, 79);
+            this.acaptada.Location = new System.Drawing.Point(559, 276);
             this.acaptada.Name = "acaptada";
             this.acaptada.Size = new System.Drawing.Size(69, 65);
             this.acaptada.TabIndex = 12;
             this.acaptada.TabStop = false;
             this.acaptada.Visible = false;
+            this.acaptada.Click += new System.EventHandler(this.acaptada_Click);
             // 
             // NoAceptada
             // 
             this.NoAceptada.BackColor = System.Drawing.Color.Transparent;
             this.NoAceptada.Image = ((System.Drawing.Image)(resources.GetObject("NoAceptada.Image")));
-            this.NoAceptada.Location = new System.Drawing.Point(109, 79);
+            this.NoAceptada.Location = new System.Drawing.Point(559, 276);
             this.NoAceptada.Name = "NoAceptada";
             this.NoAceptada.Size = new System.Drawing.Size(69, 65);
             this.NoAceptada.TabIndex = 13;
             this.NoAceptada.TabStop = false;
             this.NoAceptada.Visible = false;
+            this.NoAceptada.Click += new System.EventHandler(this.NoAceptada_Click);
             // 
             // picNext
             // 
             this.picNext.BackColor = System.Drawing.Color.Transparent;
             this.picNext.Image = ((System.Drawing.Image)(resources.GetObject("picNext.Image")));
-            this.picNext.Location = new System.Drawing.Point(109, 345);
+            this.picNext.Location = new System.Drawing.Point(109, 273);
             this.picNext.Name = "picNext";
             this.picNext.Size = new System.Drawing.Size(69, 71);
             this.picNext.TabIndex = 14;
@@ -221,13 +238,52 @@
             this.lblTokenActual.Size = new System.Drawing.Size(0, 20);
             this.lblTokenActual.TabIndex = 15;
             // 
+            // picRestart
+            // 
+            this.picRestart.BackColor = System.Drawing.Color.Transparent;
+            this.picRestart.Image = ((System.Drawing.Image)(resources.GetObject("picRestart.Image")));
+            this.picRestart.Location = new System.Drawing.Point(17, 273);
+            this.picRestart.Name = "picRestart";
+            this.picRestart.Size = new System.Drawing.Size(65, 71);
+            this.picRestart.TabIndex = 16;
+            this.picRestart.TabStop = false;
+            this.picRestart.Visible = false;
+            this.picRestart.Click += new System.EventHandler(this.picRestart_Click);
+            // 
+            // lblPasos
+            // 
+            this.lblPasos.AutoSize = true;
+            this.lblPasos.BackColor = System.Drawing.Color.Transparent;
+            this.lblPasos.Font = new System.Drawing.Font("Ubuntu Mono", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPasos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblPasos.Location = new System.Drawing.Point(308, 291);
+            this.lblPasos.Name = "lblPasos";
+            this.lblPasos.Size = new System.Drawing.Size(18, 20);
+            this.lblPasos.TabIndex = 18;
+            this.lblPasos.Text = "0";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Ubuntu Mono", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label6.Location = new System.Drawing.Point(239, 291);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(63, 20);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Pasos:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CadetBlue;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(647, 428);
+            this.ClientSize = new System.Drawing.Size(647, 357);
+            this.Controls.Add(this.lblPasos);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.picRestart);
             this.Controls.Add(this.lblTokenActual);
             this.Controls.Add(this.picNext);
             this.Controls.Add(this.NoAceptada);
@@ -245,11 +301,13 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Proyecto II - Lenguajes Formales y autómatas";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cinta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picStart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.acaptada)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NoAceptada)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picNext)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picRestart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,6 +328,9 @@
         private System.Windows.Forms.PictureBox NoAceptada;
         private System.Windows.Forms.PictureBox picNext;
         private System.Windows.Forms.Label lblTokenActual;
+        private System.Windows.Forms.PictureBox picRestart;
+        private System.Windows.Forms.Label lblPasos;
+        private System.Windows.Forms.Label label6;
     }
 }
 
