@@ -15,6 +15,7 @@ namespace Proyecto_II
         private char[] listaCadena;
         private int currentState;
         private char currentToken;
+        private List<char> listaValores = new List<char>();
         private int index;
         public Unaria()
         {
@@ -50,7 +51,8 @@ namespace Proyecto_II
                 {
                     case '|':
                         currentState = 1;
-                        listaCadena[index + 1] = 'X';
+                        listaValores.RemoveAt(index + 1);
+                        listaValores.Insert((index + 1), 'X');
                         cinta.Rows[0].Cells[index + 1].Value = "X";
                         index++;
                         return;
@@ -82,8 +84,14 @@ namespace Proyecto_II
                 {
                     case '|':
                         currentState = 3;
-                        listaCadena[index + 1] = 'Y';
+                        listaValores.RemoveAt(index + 1);
+                        listaValores.Insert((index + 1), 'Y');
                         cinta.Rows[0].Cells[index + 1].Value = "Y";
+                        DataGridViewColumn columna1 = new DataGridViewColumn();
+                        columna1.Name = (1).ToString();
+                        DataGridViewCell cell1 = new DataGridViewTextBoxCell();
+                        columna1.CellTemplate = cell1;
+                        cinta.Columns.Add(columna1);
                         index++;
                         return;
                     case '=':
@@ -99,7 +107,7 @@ namespace Proyecto_II
             {
                 switch (currentToken)
                 {
-                    case '=':
+                    case 'ß':
                         currentState = 4;
                         index++;
                         return;
@@ -115,7 +123,8 @@ namespace Proyecto_II
                     case ' ':
                         currentState = 5;
                         cinta.Rows[0].Cells[index + 1].Value = "|";
-                        listaCadena[index + 1] = '|';
+                        listaValores.RemoveAt(index + 1);
+                        listaValores.Insert((index + 1), '|');
                         index--;
                         return;
                     default:
@@ -134,7 +143,8 @@ namespace Proyecto_II
                     case 'Y':
                         currentState = 2;
                         cinta.Rows[0].Cells[index + 1].Value = "|";
-                        listaCadena[index + 1] = '|';
+                        listaValores.RemoveAt(index + 1);
+                        listaValores.Insert((index + 1), '|');
                         index++;
                         return;
                     default:
@@ -149,7 +159,8 @@ namespace Proyecto_II
                     case 'X':
                         currentState = 0;
                         cinta.Rows[0].Cells[index + 1].Value = "|";
-                        listaCadena[index + 1] = '|';
+                        listaValores.RemoveAt(index + 1);
+                        listaValores.Insert((index + 1), '|');
                         index++;
                         return;
                     default:
@@ -177,7 +188,13 @@ namespace Proyecto_II
 
         private void picNext_Click(object sender, EventArgs e)
         {
-            currentToken = listaCadena[index + 1];
+            picNext.Visible = false;
+            timer1.Enabled = true;
+        }
+
+        private void Action()
+        {
+            currentToken = listaValores.ElementAt(index + 1);
             lblPasos.Text = (++pasos).ToString();
             //lblTokenActual.Text = currentToken.ToString();
             getNextState();
@@ -187,6 +204,7 @@ namespace Proyecto_II
                 lblResultado.Visible = true;
                 acaptada.Visible = true;
                 picRestart.Visible = true;
+                timer1.Enabled = false;
             }
             if (currentState == -1)
             {
@@ -194,6 +212,7 @@ namespace Proyecto_II
                 lblResultado.Visible = true;
                 NoAceptada.Visible = true;
                 picRestart.Visible = true;
+                timer1.Enabled = false;
                 return;
             }
             else
@@ -252,10 +271,6 @@ namespace Proyecto_II
                 }
             }
             igual = (contador - (contador2))*(contador2);
-            for (int i = 0; i < igual; i++)
-            {
-                texto = texto + " ";
-            }
             texto = texto + "ß";
             char[] cadena = texto.ToCharArray();
             listaCadena = cadena;
@@ -266,6 +281,11 @@ namespace Proyecto_II
                 DataGridViewCell cell1 = new DataGridViewTextBoxCell();
                 columna1.CellTemplate = cell1;
                 cinta.Columns.Add(columna1);
+                listaValores.Add(cadena[i]);
+            }
+            for (int i = 0; i < igual; i++)
+            {
+                listaValores.Add(' ');
             }
             cinta.Rows.Add();
             cinta.Rows[0].Height = 120;
@@ -278,6 +298,18 @@ namespace Proyecto_II
             //lblTokenActual.Text = currentToken.ToString();
             index = -1;
             cinta.Rows[0].Cells[0].Selected = true;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Principal principal = new Principal();
+            principal.Show();
+            this.Hide();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Action();
         }
     }
 }

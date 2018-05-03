@@ -48,8 +48,14 @@ namespace Proyecto_II
                     this.Hide();
                     break;
                 case 3: //Suma unaria
+                    SumaUnaria suma = new SumaUnaria();
+                    suma.Show();
+                    this.Hide();
                     break;
                 case 4: //Resta unaria
+                    RestaUnaria resta = new RestaUnaria();
+                    resta.Show();
+                    this.Hide();
                     break;
                 default:
                     return;

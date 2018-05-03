@@ -68,6 +68,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resta.cs" />
+    <Compile Include="RestaUnaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RestaUnaria.Designer.cs">
+      <DependentUpon>RestaUnaria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Suma.cs" />
+    <Compile Include="SumaUnaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SumaUnaria.Designer.cs">
+      <DependentUpon>SumaUnaria.cs</DependentUpon>
+    </Compile>
     <Compile Include="Unaria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +106,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RestaUnaria.resx">
+      <DependentUpon>RestaUnaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SumaUnaria.resx">
+      <DependentUpon>SumaUnaria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Unaria.resx">
       <DependentUpon>Unaria.cs</DependentUpon>
     </EmbeddedResource>

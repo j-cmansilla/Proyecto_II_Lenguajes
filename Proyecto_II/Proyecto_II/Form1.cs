@@ -93,30 +93,8 @@ namespace Proyecto_II
         private int pasos = 0;
         private void picNext_Click(object sender, EventArgs e)
         {
-            currentToken = listaCadena[index + 1];
-            lblPasos.Text = (++pasos).ToString();
-            //lblTokenActual.Text = currentToken.ToString();
-            getNextState();
-            if (currentState == 10)
-            {
-                picNext.Visible = false;
-                lblResultado.Visible = true;
-                acaptada.Visible = true;
-                picRestart.Visible = true;
-            }
-            if (currentState == -1)
-            {
-                picNext.Visible = false;
-                lblResultado.Visible = true;
-                NoAceptada.Visible = true;
-                picRestart.Visible = true;
-                return;
-            }
-            else
-            {
-                lblState.Text = "q" + currentState.ToString();
-            }
-            cinta.Rows[0].Cells[index+1].Selected = true;
+            timer1.Enabled = true;
+            picNext.Visible = false;
         }
 
         private void getNextState()
@@ -331,6 +309,47 @@ namespace Proyecto_II
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Principal principal = new Principal();
+            principal.Show();
+            this.Hide();
+        }
+
+        private void Action()
+        {
+            currentToken = listaCadena[index + 1];
+            lblPasos.Text = (++pasos).ToString();
+            //lblTokenActual.Text = currentToken.ToString();
+            getNextState();
+            if (currentState == 10)
+            {
+                picNext.Visible = false;
+                lblResultado.Visible = true;
+                acaptada.Visible = true;
+                picRestart.Visible = true;
+                timer1.Enabled = false;
+            }
+            if (currentState == -1)
+            {
+                picNext.Visible = false;
+                lblResultado.Visible = true;
+                NoAceptada.Visible = true;
+                picRestart.Visible = true;
+                timer1.Enabled = false;
+                return;
+            }
+            else
+            {
+                lblState.Text = "q" + currentState.ToString();
+            }
+            cinta.Rows[0].Cells[index + 1].Selected = true;
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Action();
         }
     }
 }

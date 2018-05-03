@@ -16,7 +16,7 @@ namespace Proyecto_II
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Unaria());
+            Application.Run(new Principal());
         }
     }
 }
