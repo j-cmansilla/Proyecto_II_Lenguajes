@@ -57,7 +57,7 @@ namespace Proyecto_II
                         index++;
                         return;
                     case '*':
-                        currentState = 7;
+                        currentState = 6;
                         index++;
                         return;
                     default:
@@ -99,7 +99,7 @@ namespace Proyecto_II
                         index--;
                         return;
                     default:
-                        //index++;
+                        currentState = -1;
                         return;
                 }
             }
@@ -109,19 +109,6 @@ namespace Proyecto_II
                 {
                     case 'ß':
                         currentState = 4;
-                        index++;
-                        return;
-                    default:
-                        index++;
-                        return;
-                }
-            }
-            if (currentState == 4)
-            {
-                switch (currentToken)
-                {
-                    case ' ':
-                        currentState = 5;
                         cinta.Rows[0].Cells[index + 1].Value = "|";
                         listaValores.RemoveAt(index + 1);
                         listaValores.Insert((index + 1), '|');
@@ -132,14 +119,10 @@ namespace Proyecto_II
                         return;
                 }
             }
-            if (currentState == 5)
+            if (currentState == 4)
             {
                 switch (currentToken)
                 {
-                    case '*':
-                        currentState = 6;
-                        index--;
-                        return;
                     case 'Y':
                         currentState = 2;
                         cinta.Rows[0].Cells[index + 1].Value = "|";
@@ -152,7 +135,23 @@ namespace Proyecto_II
                         return;
                 }
             }
-            if (currentState == 6)
+            if (currentState == 5)
+            {
+                switch (currentToken)
+                {
+                    case 'X':
+                        currentState = 0;
+                        cinta.Rows[0].Cells[index + 1].Value = "|";
+                        listaValores.RemoveAt(index + 1);
+                        listaValores.Insert((index + 1), '|');
+                        index++;
+                        return;
+                    default:
+                        index--;
+                        return;
+                }
+            }
+            /*if (currentState == 6)
             {
                 switch (currentToken)
                 {
@@ -180,7 +179,7 @@ namespace Proyecto_II
                         index++;
                         return;
                 }
-            }
+            }*/
             return;
         }
 
@@ -198,7 +197,7 @@ namespace Proyecto_II
             lblPasos.Text = (++pasos).ToString();
             //lblTokenActual.Text = currentToken.ToString();
             getNextState();
-            if (currentState == 8)
+            if (currentState == 6)
             {
                 picNext.Visible = false;
                 lblResultado.Visible = true;
@@ -271,6 +270,10 @@ namespace Proyecto_II
                 }
             }
             igual = (contador - (contador2))*(contador2);
+            for (int i = 0; i < igual; i++)
+            {
+                texto = texto + "ß";
+            }
             texto = texto + "ß";
             char[] cadena = texto.ToCharArray();
             listaCadena = cadena;
@@ -285,7 +288,7 @@ namespace Proyecto_II
             }
             for (int i = 0; i < igual; i++)
             {
-                listaValores.Add(' ');
+                listaValores.Add('ß');
             }
             cinta.Rows.Add();
             cinta.Rows[0].Height = 120;
@@ -310,6 +313,11 @@ namespace Proyecto_II
         private void timer1_Tick(object sender, EventArgs e)
         {
             Action();
+        }
+
+        private void Unaria_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -67,7 +67,7 @@ namespace Proyecto_II
             picStart.Visible = false;
             textBox1.Enabled = false;
             picNext.Visible = true;
-            string texto = textBox1.Text + "ß";
+            string texto = textBox1.Text+"ß";
             char[] cadena = texto.ToCharArray();
             listaCadena = cadena;
             for (int i = 0; i < cadena.Length; i++)
@@ -110,24 +110,28 @@ namespace Proyecto_II
                 {
                     case 'a':
                         currentState = 1;
-                        listaCadena[index+1] = ' ';
-                        cinta.Rows[0].Cells[index+1].Value = " ";
+                        listaCadena[index+1] = 'ß';
+                        cinta.Rows[0].Cells[index+1].Value = "ß";
+                        cambios++;
                         index++;
                         return;
                     case 'b':
-                        listaCadena[index+1] = ' ';
-                        cinta.Rows[0].Cells[index+1].Value = " ";
+                        listaCadena[index+1] = 'ß';
+                        cinta.Rows[0].Cells[index+1].Value = "ß";
                         currentState = 2;
+                        cambios++;
                         index++;
                         return;
                     case 'c':
                         currentState = 3;
-                        listaCadena[index+1] = ' ';
-                        cinta.Rows[0].Cells[index+1].Value = " ";
+                        listaCadena[index+1] = 'ß';
+                        cinta.Rows[0].Cells[index+1].Value = "ß";
                         index++;
+                        cambios++;
                         return;
-                    case ' ':
-                        currentState = 10;
+                    case 'ß':
+                        index--;
+                        cambios = listaCadena.Length;
                         return;
                     default:
                         currentState = -1;
@@ -179,13 +183,14 @@ namespace Proyecto_II
                 {
                     case 'a':
                         currentState = 7;
-                        cinta.Rows[0].Cells[index + 1].Value = " ";
-                        listaCadena[index + 1] = ' ';
+                        cinta.Rows[0].Cells[index + 1].Value = "ß";
+                        listaCadena[index + 1] = 'ß';
+                        cambios++;
                         index--;
                         return;
-                    case ' ':
-                        //currentState = 7;
-                        index--;
+                    case 'ß':
+                        cambios = listaCadena.Length;
+                        index++;
                         return;
                     default:
                         currentState = -1;
@@ -197,14 +202,15 @@ namespace Proyecto_II
                 switch (currentToken)
                 {
                     case 'b':
-                        currentState = 8;
-                        cinta.Rows[0].Cells[index + 1].Value = " ";
-                        listaCadena[index + 1] = ' ';
+                        currentState = 7;
+                        cinta.Rows[0].Cells[index + 1].Value = "ß";
+                        listaCadena[index + 1] = 'ß';
                         index--;
+                        cambios++;
                         return;
-                    case ' ':
-                        //currentState = 7;
-                        index--;
+                    case 'ß':
+                        cambios = listaCadena.Length;
+                        index++;
                         return;
                     default:
                         currentState = -1;
@@ -216,14 +222,15 @@ namespace Proyecto_II
                 switch (currentToken)
                 {
                     case 'c':
-                        currentState = 9;
-                        cinta.Rows[0].Cells[index + 1].Value = " ";
-                        listaCadena[index + 1] = ' ';
+                        currentState = 7;
+                        cinta.Rows[0].Cells[index + 1].Value = "ß";
+                        listaCadena[index + 1] = 'ß';
+                        cambios++;
                         index--;
                         return;
-                    case ' ':
-                        //currentState = 7;
-                        index--;
+                    case 'ß':
+                        cambios = listaCadena.Length;
+                        index++;
                         return;
                     default:
                         currentState = -1;
@@ -234,33 +241,7 @@ namespace Proyecto_II
             {
                 switch (currentToken)
                 {
-                    case ' ':
-                        currentState = 0;
-                        index++;
-                        return;
-                    default:
-                        index--;
-                        return;
-                }
-            }
-            if (currentState == 8)
-            {
-                switch (currentToken)
-                {
-                    case ' ':
-                        currentState = 0;
-                        index++;
-                        return;
-                    default:
-                        index--;
-                        return;
-                }
-            }
-            if (currentState == 9)
-            {
-                switch (currentToken)
-                {
-                    case ' ':
+                    case 'ß':
                         currentState = 0;
                         index++;
                         return;
@@ -275,6 +256,7 @@ namespace Proyecto_II
         private void picRestart_Click(object sender, EventArgs e)
         {
             lblState.Text = "q0";
+            cambios = 0;
             textBox1.Text = "";
             lblResultado.Visible = false;
             NoAceptada.Visible = false;
@@ -317,14 +299,14 @@ namespace Proyecto_II
             principal.Show();
             this.Hide();
         }
-
+        private int cambios = 0;
         private void Action()
         {
             currentToken = listaCadena[index + 1];
             lblPasos.Text = (++pasos).ToString();
             //lblTokenActual.Text = currentToken.ToString();
             getNextState();
-            if (currentState == 10)
+            if ((currentState == 0 || currentState == 6 || currentState == 4 || currentState == 5) && cambios == listaCadena.Length)
             {
                 picNext.Visible = false;
                 lblResultado.Visible = true;

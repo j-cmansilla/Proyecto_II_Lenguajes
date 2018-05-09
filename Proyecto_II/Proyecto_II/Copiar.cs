@@ -32,8 +32,6 @@ namespace Proyecto_II
                     return true;
                 case 'ß':
                     return true;
-                case ' ':
-                    return true;
                 default:
                     return false;
             }
