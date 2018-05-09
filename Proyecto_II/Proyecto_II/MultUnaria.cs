@@ -24,8 +24,6 @@ namespace Proyecto_II
                     return true;
                 case 'Y':
                     return true;
-                case ' ':
-                    return true;
                 default:
                     return false;
             }
