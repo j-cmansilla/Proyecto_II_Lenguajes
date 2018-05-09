@@ -73,7 +73,9 @@ namespace Proyecto_II
         {
             lblState.Text = "q0";
             textBox1.Text = "";
+            index = -1;
             lblResultado.Visible = false;
+            listaValores = new List<char>();
             NoAceptada.Visible = false;
             acaptada.Visible = false;
             lblPasos.Text = "0";
@@ -200,13 +202,13 @@ namespace Proyecto_II
             {
                 switch (currentToken)
                 {
-                    case ' ':
+                    case 'ß':
                         index--;
                         return;
                     case '|':
-                        cinta.Rows[0].Cells[index + 1].Value = " ";
+                        cinta.Rows[0].Cells[index + 1].Value = "ß";
                         listaValores.RemoveAt(index + 1);
-                        listaValores.Insert((index + 1), ' ');
+                        listaValores.Insert((index + 1), 'ß');
                         currentState = 5;
                         index++;
                         return;
@@ -219,7 +221,7 @@ namespace Proyecto_II
             {
                 switch (currentToken)
                 {
-                    case ' ':
+                    case 'ß':
                         index++;
                         return;
                     case '|':
@@ -259,6 +261,11 @@ namespace Proyecto_II
         private void timer1_Tick(object sender, EventArgs e)
         {
             Action();
+        }
+
+        private void RestaUnaria_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

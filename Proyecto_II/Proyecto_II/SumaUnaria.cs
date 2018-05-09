@@ -199,5 +199,10 @@ namespace Proyecto_II
         {
             Action();
         }
+
+        private void SumaUnaria_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
